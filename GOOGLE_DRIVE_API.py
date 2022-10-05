@@ -34,7 +34,7 @@ def upload_to_google_drive_serv_acc():
 
     credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
     client = gspread.authorize(credentials)
-
+    # открываем табличку OZON_FBS_TEST1 в гугл диске
     spreadsheet = client.open('OZON_FBS_TEST1')
 
     with open(r'OZON_FBS_CSV.csv', encoding='latin1') as file_obj:
