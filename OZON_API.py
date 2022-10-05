@@ -11,8 +11,8 @@ url = url.strip()
 
 # ввожу ключ и id от кабинета OZON
 head = {
-    "Client-Id": "148522",
-    "Api-Key": "087d2080-7dcc-418b-ae01-ee39b3b4ee1c"
+    "Client-Id": "***ID***",
+    "Api-Key": "***API_KEY***"
 }
 # дата конца периода, за который надо получить список отправлений (для параметра body 'to'), на текущий момент
 time = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ'[:-4] + 'Z')
@@ -32,8 +32,8 @@ body = {
         "financial_data": True
     }
 }
-# вывод данных OZON API
-body = json.dumps(body)  # Нужно передавать в озон именно так, потому что string он как json не понимает
+# данные из OZON API
+body = json.dumps(body)  # Надо передавать в API озон именно так
 response = requests.post(url, headers=head, data=body)
 # проверка корректности подключения и получения ответа от OZON_API
 if response.status_code == 200:
